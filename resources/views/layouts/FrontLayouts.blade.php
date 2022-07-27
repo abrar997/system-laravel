@@ -80,12 +80,17 @@
                             <ul>
                                 <li><a href="{{ route('profile.show') }}">Profile</a></li>
                                 {{-- <li><a href="{{ route('logout') }}">Logout</a></li> --}}
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
 
-                                {{-- <li> <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); this.closest('form').submit();">
-                                    logout
-                                    </a>
-                                </li> --}}
+                                        <x-jet-dropdown-link class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); this.closest('form').submit();"
+                                            >
+                                            {{ __('Log Out') }}
+                                        </x-jet-dropdown-link>
+                                    </form>
+                                </li>
 
                             </ul>
 
