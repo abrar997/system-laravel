@@ -1,16 +1,15 @@
 1-categories
 a-img
 b-name_ar name_en
-c-small-description-ar  small-description-en
+c-small-description-ar small-description-en
 d-show(1=>0) default
-
 
 2-product
 
-a-cat_id  //to connect with categ
+a-cat_id //to connect with categ
 b-name_ar name_en
 c-img
-d-small-description-ar  small-description-en
+d-small-description-ar small-description-en
 e-favourite
 
 3-cart
@@ -20,10 +19,9 @@ c-price
 d-quantity
 e-checkout
 
-
 4-favourite many to many
 a-product_id
 b-user_id
 
 <!-- php artisan migrate make:model NAme -m  ==>create  model and migaration -->
-
+<!-- php artisan migrate:rollback step=1 reback one step behind  -->

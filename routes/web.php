@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Front\FronHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,22 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
+// Admin dashboard
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-
-    Route::middleware('adminAuth:web')->group(function(){
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->name('dashboard');
-
+    Route::middleware('adminAuth:web')->group(function () {
+        // Route::get('/adminHome', function () {
+        //     return view('adminHome');
+        // })->name('adminHome');
+        Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard');
+        Route::post('add-categ', [AdminHomeController::class, 'AddCategory']);
     });
 });
-
-Route::get('/',[FronHomeController::class,'index'] )->name('HomeFront');
+// Home
+Route::get('/', [FronHomeController::class, 'index'])->name('HomeFront');

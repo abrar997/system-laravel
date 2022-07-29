@@ -15,10 +15,10 @@ class CreateCatsTable extends Migration
     {
         Schema::create('cats', function (Blueprint $table) {
             $table->id();
-            $table->string('name-ar')->nullable();
-            $table->string('name-en')->nullable();
-            $table->text('desc-ar')->nullable();
-            $table->text('desc-en')->nullable();
+            $table->string('name_ar')->nullable();
+            $table->string('name_en')->nullable();
+            $table->text('desc_ar')->nullable();
+            $table->text('desc_en')->nullable();
             $table->string('img')->nullable();
             $table->timestamps();
         });
